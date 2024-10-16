@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -67,4 +67,61 @@
     </script>
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <div>
+      <form action="">
+        <input
+          id="task"
+          type="text"
+          class="border-2 border-black p-2 rounded-md"
+        />
+        <button type="submit" class="p-2 border-2 border-black bg-green-200">
+          Add task
+        </button>
+      </form>
+      <ul></ul>
+    </div>
+
+    <script>
+      const myform = document.querySelector("form");
+      const task_input = document.querySelector("#task");
+      const ul = document.querySelector("ul");
+      const task_array = JSON.parse(localStorage.getItem("tasks"));
+      console.log(task_array);
+
+      task_array.forEach((task) => {
+        let li = document.createElement("li");
+        li.textContent = task.name;
+        task_input.value = "";
+        ul.appendChild(li);
+      });
+      myform.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (task_input.value != "") {
+          let task_obj = {
+            id: Date.now(),
+            name: task_input.value,
+          };
+          task_array.push(task_obj);
+          localStorage.setItem("tasks", JSON.stringify(task_array));
+          let li = document.createElement("li");
+          li.textContent = task_input.value;
+          task_input.value = "";
+          ul.appendChild(li);
+        }
+        console.log(task_array);
+      });
+    </script>
+  </body>
 </html>
