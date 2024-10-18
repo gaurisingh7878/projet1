@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div class="">
+    <!-- <div class="">
       <form action="">
         <input
           id="task"
@@ -23,9 +23,11 @@
       </form>
 
       <ul></ul>
-    </div>
+    </div> -->
+
+
     
-    <script>
+    <!-- <script>
       const myform = document.querySelector("form");
       const task_input = document.querySelector("#task");
       const ul = document.querySelector("ul");
@@ -54,6 +56,20 @@
         }
         console.log(task_array);
       });
-    </script>
+
+      function delete_task(id) {
+        let index = task_array.findIndex((task) => task.id == id);
+        task_array.splice(index, 1);
+        localStorage.setItem("tasks", JSON.stringify(task_array));
+        window.location.reload();
+      }
+    </script> -->
+<div>
+  
+</div>
+<script>
+
+</script>
+
   </body>
 </html>
