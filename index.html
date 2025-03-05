@@ -130,39 +130,85 @@
     data-aos="fade-down" data-aos-duration="600">
     <span>🎉Token Metrics AI Airdrop Campaign is Live - Join Now 🎉 </span>
   </div>
-  <nav class="flex justify-between p-4 px-40 items-center">
-    <ul>
+  <!-- Responsive Navbar -->
+<nav class="flex justify-between p-4 md:px-40 items-center">
+  <!-- Logo -->
+  <ul>
       <li>
-        <img
-          src="https://cdn.prod.website-files.com/634054bf0f60201ce9b30604/66b4e2d272560ea869216243_Mark%2Btypeface_horizontal-1.svg"
-          alt="" class="w-40" />
+          <img src="https://cdn.prod.website-files.com/634054bf0f60201ce9b30604/66b4e2d272560ea869216243_Mark%2Btypeface_horizontal-1.svg" alt="" class="w-32 md:w-40">
       </li>
-    </ul>
-    <ul class="flex gap-10">
+  </ul>
+
+  <!-- Desktop Links -->
+  <ul class="hidden md:flex gap-6 lg:gap-10">
+      <li><a href="#" class="text-gray-500 text-sm md:text-lg font-semibold">Products</a></li>
+      <li><a href="#" class="text-gray-500 text-sm md:text-lg">Pricing</a></li>
+      <li><a href="#Common" class="text-gray-500 text-sm md:text-lg">FAQ</a></li>
+      <li><a href="#" class="text-gray-500 text-sm md:text-lg">Company</a></li>
+      <li><a href="#contact" class="text-gray-500 text-sm md:text-lg">Contact</a></li>
+  </ul>
+
+  <!-- Desktop Buttons -->
+  <ul class="hidden md:flex gap-6">
       <li>
-        <a href="#" class="text-gray-500 font-smobold text-lg" id="profile">Products</a>
-      </li>
-      <li><a href="#" class="text-gray-500 text-lg">pricing </a></li>
-      <li><a href="#Common" class="text-gray-500 text-lg" id="FAQ">FAQ</a></li>
-      <li><a href="#" class="text-gray-500 text-lg" id="demo">Company</a></li>
-      <li>
-        <a href="#contact" id="" class="text-gray-500 text-lg">contact</a>
-      </li>
-    </ul>
-    <ul class="flex gap-10">
-      <li>
-        <button
-          class="bg-white hover:bg-yellow-500 text-black border-[2px] border-yellow-500 font-bold py-4 px-8 rounded-full">
-          Sign in
-        </button>
+          <button class="bg-white hover:bg-yellow-500 text-black border-[2px] border-yellow-500 font-bold py-2 px-4 md:py-4 md:px-8 rounded-full">
+              Sign in
+          </button>
       </li>
       <li>
-        <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-8 rounded-full">
-          Sign Up
-        </button>
+          <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 md:py-4 md:px-8 rounded-full">
+              Sign Up
+          </button>
       </li>
-    </ul>
-  </nav>
+  </ul>
+
+  <!-- Hamburger Menu for Mobile -->
+  <button id="hamburger-menu" class="md:hidden text-3xl text-gray-500">
+      <i class="fa-solid fa-bars"></i>
+  </button>
+</nav>
+
+<!-- Mobile Menu (Hidden by default) -->
+<div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 text-white flex flex-col items-center justify-center hidden">
+  <button id="close-menu" class="absolute top-5 right-5 text-3xl text-gray-500">
+      <i class="fa-solid fa-times"></i>
+  </button>
+  <ul class="flex flex-col gap-6 text-lg items-center">
+      <li><a href="#" class="hover:text-yellow-500">Products</a></li>
+      <li><a href="#" class="hover:text-yellow-500">Pricing</a></li>
+      <li><a href="#Common" class="hover:text-yellow-500">FAQ</a></li>
+      <li><a href="#" class="hover:text-yellow-500">Company</a></li>
+      <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
+  </ul>
+  <div class="flex gap-4 mt-8">
+      <button class="bg-white text-black font-bold py-2 px-6 rounded-full">Sign in</button>
+      <button class="bg-yellow-500 text-white font-bold py-2 px-6 rounded-full">Sign Up</button>
+  </div>
+</div>
+
+<!-- Responsive CSS Styling -->
+<style>
+  /* Mobile Menu Toggle */
+  #mobile-menu.show {
+      display: flex;
+  }
+</style>
+
+<!-- JavaScript for Menu Toggle -->
+<script>
+  const menuButton = document.getElementById('hamburger-menu');
+  const closeButton = document.getElementById('close-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+  });
+
+  closeButton.addEventListener('click', () => {
+      mobileMenu.classList.remove('show');
+  });
+</script>
+
 
   <!-- <div class="text-lg gap-2 flex">
    
@@ -181,45 +227,72 @@
       </li>
   </ul>
   </div> -->
-  <div class="text-lg gap-2 flex">
+  <div class="text-lg gap-2 flex relative">
     <ul class="relative">
-      <li id="profile" class="flex items-center gap-2"></li>
-      <li id="menu" class="hidden left-[6rem] top-0 absolute p-4 shadow-xl bg-white rounded-md">
-        <div class="w-[75rem] flex flex-col gap-2 text-blue-500 ml-40">
-          <div class="flex flex-row gap-20 items-center">
-            <div class="flex gap-6 items-center hover:bg-red-50 py-4 px-4 rounded-md">
-              <span class="flex gap-6 bg-yellow-500 text-blue-500 p-2 rounded-full w-10 h-10 items-center">
-                <span class="text-[1.5rem] w-10"><i class="fa-solid fa-chart-simple text-white"></i></span>
-              </span>
-              <div class="flex flex-col">
-                <span class="text-[1.4rem] font-smobold text-gray-600 font-medium">Analytics Platform</span>
-                <span class="text-[1rem] text-gray-700">Token metrics Analytics Platform</span>
-              </div>
-            </div>
+        <!-- Dropdown Toggle -->
+        <li id="profile" class="flex items-center gap-2 cursor-pointer">
+            <!-- Profile Icon or Placeholder -->
+            <span><i class="fa-solid fa-user text-xl"></i> Profile</span>
+        </li>
+        
+        <!-- Dropdown Menu -->
+        <li id="menu" class="hidden md:left-[6rem] top-0 absolute p-4 shadow-xl bg-white rounded-md w-full md:w-[75rem] md:flex flex-col gap-2 text-blue-500 md:ml-40">
+            <div class="flex flex-col md:flex-row md:gap-20 items-center">
+                
+                <!-- Analytics Platform Item -->
+                <div class="flex gap-4 md:gap-6 items-center hover:bg-red-50 py-4 px-2 md:px-4 rounded-md">
+                    <span class="flex bg-yellow-500 text-blue-500 p-2 rounded-full w-8 h-8 md:w-10 md:h-10 items-center justify-center">
+                        <i class="fa-solid fa-chart-simple text-white text-lg md:text-xl"></i>
+                    </span>
+                    <div class="flex flex-col">
+                        <span class="text-sm md:text-[1.4rem] font-semibold text-gray-600">Analytics Platform</span>
+                        <span class="text-xs md:text-[1rem] text-gray-700">Token metrics Analytics Platform</span>
+                    </div>
+                </div>
 
-            <div class="flex gap-6 items-center hover:bg-red-50 py-4 px-4 rounded-md w-[20rem]">
-              <span class="flex gap-6 bg-yellow-500 text-blue-500 p-2 rounded-full w-10 h-10 items-center">
-                <span class="text-[1.5rem] w-10"><i class="fa-solid fa-store text-white"></i></span>
-              </span>
-              <div class="flex flex-col">
-                <span class="text-[1.4rem] font-medium text-gray-600">Data APi</span>
-                <span class="text-[1rem] text-gray-700">Token metrics Data APi</span>
-              </div>
+                <!-- Data API Item -->
+                <div class="flex gap-4 md:gap-6 items-center hover:bg-red-50 py-4 px-2 md:px-4 rounded-md">
+                    <span class="flex bg-yellow-500 text-blue-500 p-2 rounded-full w-8 h-8 md:w-10 md:h-10 items-center justify-center">
+                        <i class="fa-solid fa-store text-white text-lg md:text-xl"></i>
+                    </span>
+                    <div class="flex flex-col">
+                        <span class="text-sm md:text-[1.4rem] font-semibold text-gray-600">Data API</span>
+                        <span class="text-xs md:text-[1rem] text-gray-700">Token metrics Data API</span>
+                    </div>
+                </div>
+
+                <!-- Token Metrics AI Item -->
+                <div class="flex gap-4 md:gap-6 items-center hover:bg-red-50 py-4 px-2 md:px-4 rounded-md">
+                    <span class="flex bg-yellow-500 text-white p-2 rounded-full w-8 h-8 md:w-10 md:h-10 items-center justify-center">
+                        <i class="fa-regular fa-face-smile text-lg md:text-xl"></i>
+                    </span>
+                    <div class="flex flex-col">
+                        <span class="text-sm md:text-[1.4rem] font-semibold text-gray-600">Token Metrics AI</span>
+                        <span class="text-xs md:text-[1rem] text-gray-700">Token metrics AI Analysis</span>
+                    </div>
+                </div>
             </div>
-            <div class="flex gap-6 items-center hover:bg-red-50 py-4 px-4 rounded-md">
-              <span class="flex gap-6 bg-yellow-500 text-white p-2 rounded-full w-10 h-10 items-center">
-                <span class="text-[1.5rem] w-10"><i class="fa-regular fa-face-smile"></i></span>
-              </span>
-              <div class="flex flex-col">
-                <span class="text-[1.4rem] font-medium text-gray-600">Token metrics Al</span>
-                <span class="text-[1rem] text-gray-700">Token metrics Token metrics Al</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
+        </li>
     </ul>
-  </div>
+</div>
+
+<!-- Responsive CSS Styles -->
+<style>
+    @media (max-width: 768px) {
+        #menu {
+            width: auto;
+            left: 0;
+        }
+    }
+</style>
+
+<!-- JavaScript to Toggle the Dropdown Menu -->
+<script>
+    document.getElementById("profile").addEventListener("click", function() {
+        document.getElementById("menu").classList.toggle("hidden");
+    });
+</script>
+
 
   <div class="text-lg gap-2 flex">
     <ul class="relative">
@@ -619,40 +692,32 @@
     </div>
   </div>
 
-  <div id="contact" class="container px-4 mx-auto p-8" data-aos="flip-left" data-aos-duration="2000"
+  <div id="contact" class="container px-4 mx-auto p-8 flex justify-center" data-aos="flip-left" data-aos-duration="2000"
   data-aos-easing="ease-out-cubic">
-  <div class="mx-auto">
-    <div class="max-w-md mx-auto px-8 py-6 bg-gray-100 rounded-lg shadow-lg">
-      <h2 class="text-2xl font-semibold text-gray-800 mb-4">
-        Contact Us
-      </h2>
-      <form>
-        <div class="mb-4">
-          <label class="block text-gray-800 mb-1" for="name">Your Name</label>
-          <input
-            class="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-300 transition duration-300"
-            placeholder="Enter your name" type="text" />
-        </div>
-        <div class="mb-4">
-          <label class="block text-gray-800 mb-1" for="email">Your Email</label>
-          <input
-            class="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-300 transition duration-300"
-            placeholder="Enter your email" name="email" id="email" type="email" />
-        </div>
-        <div class="mb-4">
-          <label class="block text-gray-800 mb-1" for="message">Your Message</label>
-          <textarea
-            class="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-300 transition duration-300"
-            rows="4" placeholder="Enter your message" name="message" id="message"></textarea>
-        </div>
-        <button
-          class="w-full bg-yellow-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-yellow-400 transition duration-300"
-          type="submit">
-          Send Message
-        </button>
-      </form>
+ 
+  <form id="contact-form" class="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Contact Us</h2>
+    
+    <div class="mb-4">
+        <label for="name" class="block text-gray-700 mb-2">Name</label>
+        <input type="text" id="name" class="border border-gray-300 rounded p-2 w-full" placeholder="Your Name" required>
+        <span id="name-error" class="text-red-500 text-sm hidden">Please enter your name.</span>
     </div>
-  </div>
+
+    <div class="mb-4">
+        <label for="email" class="block text-gray-700 mb-2">Email</label>
+        <input type="email" id="email" class="border border-gray-300 rounded p-2 w-full" placeholder="Your Email" required>
+        <span id="email-error" class="text-red-500 text-sm hidden">Please enter a valid email.</span>
+    </div>
+
+    <div class="mb-4">
+        <label for="message" class="block text-gray-700 mb-2">Message</label>
+        <textarea id="message" class="border border-gray-300 rounded p-2 w-full" rows="4" placeholder="Your Message" required></textarea>
+        <span id="message-error" class="text-red-500 text-sm hidden">Please enter your message.</span>
+    </div>
+
+    <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-500">Send Message</button>
+</form>
 </div>
 
   <div id="Common" class=" flex justify-between items-center flex-col p-40 gap-20 bg-[#1d1e20]">
@@ -663,7 +728,7 @@
       <span  class=" flex justify-between items-center text-white w-full">
         <h1 class="text-2xl flex-1 font-semibold">What is Token Metrics?</h1>
         <i  class="plus-icon fa-solid fa-plus text-2xl"></i>
-      </span>
+      </span> 
       <span class="flex items-center text-white">
         <p style="display: none" class="answer text-[1rem] text-gray-600 font-medium">
           Token Metrics is an AI based Cryptocurrency Research and Analysis
@@ -727,10 +792,7 @@ class="question bg-[#161c24] flex flex-col gap-2 items-center justify-center rou
 </div>
   </div>
 
-  <div>
-   
-   
-  </div>
+  
   <footer class="bg-gray-400 text-[1.2rem] text-white p-6 mt-20">
     <div class="container mx-auto text-center">
       <div class="flex justify-center space-x-6 mb-4">

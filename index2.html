@@ -1,75 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <!-- <div class="">
-      <form action="">
-        <input
-          id="task"
-          type="text"
-          class="border-2 border-text-blue-500 p-2 rounded-md"
-        />
-        <button
-          type="Submit"
-          class="p-2 border-2 border-text-blue-500 rounded-md bg-blue-500 text-white"
-        >
-          Add task
-        </button>
-      </form>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    ul::-webkit-scrollbar {
+        width: 0;
+    }
+</style>
 
-      <ul></ul>
-    </div> -->
+<body>
+    <div>
+        <form action="">
+            <input id="task" type="text" class="border-2 border-black p-2 rounded-md">
+            <button type="submit" class="p-2 border-2 border-black bg-green-200">Add task</button>
+        </form>
+        <ul class="h-80 w-96 flex flex-col overflow-x-scroll border-[1px] border-black p-8 rounded-lg"></ul>
+    </div>
 
 
-    
-    <!-- <script>
-      const myform = document.querySelector("form");
-      const task_input = document.querySelector("#task");
-      const ul = document.querySelector("ul");
-      const task_array = JSON.parse(localStorage.getItem("tasks")) || [];
-      console.log(task_array);
+    <script>
+        const myform = document.querySelector("form")
+        const task_input = document.querySelector("#task")
+        const ul = document.querySelector("ul")
+        let task_array = JSON.parse(localStorage.getItem("tasks")) || []
 
-      task_array.forEach((task) => {
-        let li = document.createElement("li");
-        li.textContent = task.name;
-        task_input.value = "";
-        ul.appendChild(li);
-      });
-      myform.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (task_input.value != "") {
-          let task_obj = {
-            id: Date.now(),
-            name: task_input.value,
-          };
-          task_array.push(task_obj);
-          localStorage.setItem("tasks", JSON.stringify(task_array));
-          let li = document.createElement("li");
-          li.textContent = task_input.value;
-          task_input.value = "";
-          ul.appendChild(li);
+        task_array.forEach(task => {
+            create_task(task)
+        })
+        myform.addEventListener("submit", function (e) {
+            e.preventDefault()
+            if (task_input.value != "") {
+                let task_obj = {
+                    id: Date.now(),
+                    name: task_input.value
+                }
+                task_array.push(task_obj)
+                localStorage.setItem("tasks", JSON.stringify(task_array))
+                create_task(task_obj)
+                task_input.value = ""
+
+            }
+            console.log(task_array)
+        })
+
+        function create_task(task) {
+            let li = document.createElement("li")
+            li.classList.add("flex", "w-full")
+            li.innerHTML = `<span class="flex-1">${task.name}</span>`
+            let delete_btn = document.createElement("button")
+            delete_btn.innerHTML = "<i class='fa-solid fa-trash'></i>"
+            delete_btn.classList.add("text-red-500")
+            
+
+            delete_btn.addEventListener("click", function () {
+                li.remove()
+                task_array = task_array.filter(item => item.id != task.id)
+                localStorage.setItem("tasks", JSON.stringify(task_array))
+            })
+            li.appendChild(delete_btn)
+            ul.appendChild(li)
         }
-        console.log(task_array);
-      });
 
-      function delete_task(id) {
-        let index = task_array.findIndex((task) => task.id == id);
-        task_array.splice(index, 1);
-        localStorage.setItem("tasks", JSON.stringify(task_array));
-        window.location.reload();
-      }
-    </script> -->
-<div>
-  
-</div>
-<script>
 
-</script>
 
-  </body>
+    </script>
+</body>
+
 </html>

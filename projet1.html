@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen flex-col ">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96">
+        <h1 class="text-2xl font-bold mb-4">Todo List</h1>
+        <input id="todoInput" type="text" placeholder="Add a new todo" class="border border-gray-300 rounded p-2 w-full mb-4" />
+        <button id="addButton" class="bg-blue-500 text-white rounded p-2 w-full">Add Todo</button>
+        <ul id="todoList" class="mt-4"></ul>
+    </div>
+    
+<!-- 
+    <nav class="bg-blue-600 p-4 flex justify-center flex-col gap">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-white text-2xl">Crypto Tracker</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-white hover:text-blue-200">Home</a></li>
+                <li><a href="#" class="text-white hover:text-blue-200">Portfolio</a></li>
+                <li><a href="#" class="text-white hover:text-blue-200">Market</a></li>
+            </ul>
+        </div>
+    </nav> -->
+    <!-- <section class="container mx-auto p-6 flex justify-center flex-col">
+        <h2 class="text-3xl font-bold mb-4">Top Cryptocurrencies</h2>
+        <div id="crypto-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section> -->
+
+    <script>
+//         const todoInput = document.getElementById('todoInput');
+// const addButton = document.getElementById('addButton');
+// const todoList = document.getElementById('todoList');
+
+// addButton.addEventListener('click', () => {
+//     const todoText = todoInput.value.trim();
+//     if (todoText) {
+//         const todoItem = document.createElement('li');
+//         todoItem.className = 'flex justify-between items-center bg-gray-200 rounded p-2 mb-2';
+//         todoItem.innerHTML = `
+//             <span>${todoText}</span>
+//             <button class="bg-red-500 text-white rounded p-1" onclick="removeTodo(this)">Remove</button>
+//         `;
+//         todoList.appendChild(todoItem);
+//         todoInput.value = '';
+//     }
+// });
+
+// function removeTodo(button) {
+//     const todoItem = button.parentElement;
+//     todoList.removeChild(todoItem);
+// }
+
+const todoInput = document.getElementById('todoInput');
+const addButton = document.getElementById('addButton');
+const todoList = document.getElementById('todoList');
+
+addButton.addEventListener('click', () => {
+    const todoText = todoInput.value.trim();
+    if (todoText) {
+        const todoItem = document.createElement('li');
+        todoItem.className = 'flex justify-between items-center bg-gray-200 rounded p-2 mb-2';
+        todoItem.innerHTML = `
+            <span>${todoText}</span>
+            <button class="bg-red-500 text-white rounded p-1" onclick="removeTodo(this)">Remove</button>
+        `;
+        todoList.appendChild(todoItem);
+        todoInput.value = '';
+    }
+});
+function removeTodo(button) {
+    const todoItem = button.parentElement;
+    todoList.removeChild(todoItem);
+}
+
+    </script>
+
+<script>
+    async function fetchCryptoData() {
+    const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false');
+    const data = await response.json();
+    displayCryptoData(data);
+}
+
+function displayCryptoData(data) {
+    const cryptoList = document.getElementById('crypto-list');
+    cryptoList.innerHTML = data.map(coin => `
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <img src="${coin.image}" alt="${coin.name}" class="w-16 h-16 mb-2">
+            <h3 class="text-xl font-semibold">${coin.name}</h3>
+            <p class="text-gray-500">Price: $${coin.current_price.toFixed(2)}</p>
+            <p class="text-gray-500">Market Cap: $${coin.market_cap.toLocaleString()}</p>
+        </div>
+    `).join('');
+}
+
+// Fetch data on page load
+window.onload = fetchCryptoData;
+
+</script>
+
+
+
+
+
+    <!-- Navbar -->
+    
+    <!-- Crypto List Section -->
+   
+    <!-- Footer -->
+    <footer class="bg-gray-800 p-4 text-white text-center">
+        <p>&copy; 2024 Crypto Tracker. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
